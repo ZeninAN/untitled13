@@ -25,25 +25,27 @@ class managerTest {
 
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void sort() {
         man.saveProduct(first);
         man.saveProduct(second);
 
-        Ticket[] expected = new Ticket[]{first,second};
-        Ticket[] actual = new Ticket[]{second,first};
+        Ticket[] expected = new Ticket[]{first, second};
+        Ticket[] actual = new Ticket[]{second, first};
 
         Arrays.sort(actual);
 
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void sort2() {
         man.saveProduct(first);
         man.saveProduct(four);
 
-        Ticket[] expected = new Ticket[]{first,four};
-        Ticket[] actual = new Ticket[]{first,four};
+        Ticket[] expected = new Ticket[]{first, four};
+        Ticket[] actual = new Ticket[]{first, four};
 
         Arrays.sort(actual);
 
@@ -55,13 +57,14 @@ class managerTest {
         man.saveProduct(first);
         man.saveProduct(third);
 
-        Ticket[] expected = new Ticket[]{first,third};
-        Ticket[] actual = new Ticket[]{first,third};
+        Ticket[] expected = new Ticket[]{first, third};
+        Ticket[] actual = new Ticket[]{first, third};
 
         Arrays.sort(actual);
 
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void removeById() {
         man.saveProduct(first);
@@ -70,8 +73,8 @@ class managerTest {
 
         man.removeById(2);
 
-        Ticket[] expected = new Ticket[]{first,third};
-        Ticket[] actual = new Ticket[]{first,third};
+        Ticket[] expected = new Ticket[]{first, third};
+        Ticket[] actual = new Ticket[]{first, third};
 
 
         assertArrayEquals(expected, actual);

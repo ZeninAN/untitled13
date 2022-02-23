@@ -10,17 +10,16 @@ public class Ticket implements Comparable<Ticket> {
     @Override
     public int compareTo(Ticket o) {
         Ticket t = (Ticket) o;
-        if (this.price > t.price){
+        if (this.price > t.price) {
             return -1;
-        } else if (this.price < t.price){
+        } else if (this.price < t.price) {
             return 1;
-        }
-         else{
+        } else {
             return 0;
         }
     }
 
-    public Ticket(int id, int price, String from,String to,int time) {
+    public Ticket(int id, int price, String from, String to, int time) {
         this.id = id;
         this.price = price;
         this.from = from;
@@ -32,7 +31,8 @@ public class Ticket implements Comparable<Ticket> {
     }
 
     public String getTo() {
-        return to;}
+        return to;
+    }
 
 
     public String getFrom() {
