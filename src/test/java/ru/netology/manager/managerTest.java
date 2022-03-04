@@ -8,12 +8,12 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class managerTest {
-    private manager man = new manager(new ticketRepository());
-    private Ticket first = new Ticket(1, 400, "LED", "KUF", 4);
-    private Ticket second = new Ticket(2, 300, "KUF", "LED", 4);
-    private Ticket third = new Ticket(3, 130, "OGZ", "GOJ", 4);
-    private Ticket four = new Ticket(4, 400, "LED", "KUF", 6);
+class ManagerTest {
+    private final manager man = new manager(new ticketRepository());
+    private final Ticket first = new Ticket(1, 400, "LED", "KUF", 4);
+    private final Ticket second = new Ticket(2, 300, "KUF", "LED", 7);
+    private final Ticket third = new Ticket(3, 130, "OGZ", "GOJ", 9);
+    private final Ticket four = new Ticket(4, 400, "LED", "KUF", 6);
 
     @Test
     public void search() {
@@ -30,9 +30,10 @@ class managerTest {
     public void sort() {
         man.saveProduct(first);
         man.saveProduct(second);
+        man.saveProduct(third);
 
-        Ticket[] expected = new Ticket[]{first, second};
-        Ticket[] actual = new Ticket[]{second, first};
+        Ticket[] expected = new Ticket[]{third, second, first};
+        Ticket[] actual = new Ticket[]{second, third, first};
 
         Arrays.sort(actual);
 
@@ -46,19 +47,6 @@ class managerTest {
 
         Ticket[] expected = new Ticket[]{first, four};
         Ticket[] actual = new Ticket[]{first, four};
-
-        Arrays.sort(actual);
-
-        assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void sort3() {
-        man.saveProduct(first);
-        man.saveProduct(third);
-
-        Ticket[] expected = new Ticket[]{first, third};
-        Ticket[] actual = new Ticket[]{first, third};
 
         Arrays.sort(actual);
 

@@ -3,23 +3,27 @@ package ru.netology.manager;
 import ru.netology.ticket.Ticket;
 import ru.netology.repository.ticketRepository;
 
+import java.util.Arrays;
+
 public class manager {
     private ticketRepository repository;
 
     public Ticket[] searchBy(String from, String to) {
-        Ticket[] result = new Ticket[0]; // тут будем хранить подошедшие запросу продукты
+        Ticket[] result = new Ticket[0];
         for (Ticket ticket : repository.findAll()) {
             if (matches(ticket, from, to)) {
-                Ticket[] tmp = new Ticket[result.length + 1];
+                int lenght = result.length + 1;
+                Ticket[] tmp = new Ticket[lenght];
                 System.arraycopy(result, 0, tmp, 0, result.length);
-                tmp[tmp.length - 1] = ticket;
-                result = tmp;// "добавляем в конец" массива result продукт product
+                int lastIndex = tmp.length - 1;
+                tmp[lastIndex] = ticket;
+                result = tmp;
             }
         }
+        Arrays.sort(result);
         return result;
     }
 
-    // метод определения соответствия товара product запросу search
     public boolean matches(Ticket ticket, String from, String to) {
         if (ticket.getFrom().contains(from) && ticket.getTo().contains(to)) {
             return true;
