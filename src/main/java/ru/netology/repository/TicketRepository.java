@@ -2,7 +2,7 @@ package ru.netology.repository;
 
 import ru.netology.ticket.Ticket;
 
-public class ticketRepository {
+public class TicketRepository {
     private Ticket[] items = new Ticket[0];
 
     public void save(Ticket item) {

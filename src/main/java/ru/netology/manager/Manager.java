@@ -1,12 +1,12 @@
 package ru.netology.manager;
 
+import ru.netology.repository.TicketRepository;
 import ru.netology.ticket.Ticket;
-import ru.netology.repository.ticketRepository;
 
 import java.util.Arrays;
 
-public class manager {
-    private ticketRepository repository;
+public class Manager {
+    private TicketRepository repository;
 
     public Ticket[] searchBy(String from, String to) {
         Ticket[] result = new Ticket[0];
@@ -32,7 +32,7 @@ public class manager {
         }
     }
 
-    public manager(ticketRepository repository) {
+    public Manager(TicketRepository repository) {
         this.repository = repository;
     }
 

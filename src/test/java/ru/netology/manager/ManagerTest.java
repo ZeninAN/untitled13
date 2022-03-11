@@ -1,7 +1,7 @@
 package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.repository.ticketRepository;
+import ru.netology.repository.TicketRepository;
 import ru.netology.ticket.Ticket;
 
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ManagerTest {
-    private final manager man = new manager(new ticketRepository());
+    private final Manager man = new Manager(new TicketRepository());
     private final Ticket first = new Ticket(1, 400, "LED", "KUF", 4);
     private final Ticket second = new Ticket(2, 300, "KUF", "LED", 7);
     private final Ticket third = new Ticket(3, 130, "OGZ", "GOJ", 9);
