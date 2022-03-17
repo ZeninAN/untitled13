@@ -14,13 +14,32 @@ class ManagerTest {
     private final Ticket second = new Ticket(2, 300, "KUF", "LED", 7);
     private final Ticket third = new Ticket(3, 130, "OGZ", "GOJ", 9);
     private final Ticket four = new Ticket(4, 400, "LED", "KUF", 6);
+    private final Ticket fifth = new Ticket(5, 600, "GOJ", "KUF", 2);
 
     @Test
     public void search() {
         man.saveProduct(first);
         man.saveProduct(second);
+        man.saveProduct(third);
 
         Ticket[] expected = new Ticket[]{first};
+        Ticket[] actual = man.searchBy("LED", "KUF");
+
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void search2() {
+        man.saveProduct(first);
+
+        Ticket[] expected = new Ticket[]{first};
+        Ticket[] actual = man.searchBy("LED", "KUF");
+
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void search3() {
+
+        Ticket[] expected = new Ticket[]{};
         Ticket[] actual = man.searchBy("LED", "KUF");
 
         assertArrayEquals(expected, actual);
@@ -52,6 +71,21 @@ class ManagerTest {
 
         assertArrayEquals(expected, actual);
     }
+    @Test
+    public void sort3() {
+        man.saveProduct(first);
+        man.saveProduct(second);
+        man.saveProduct(third);
+        man.saveProduct(four);
+        man.saveProduct(fifth);
+
+        Ticket[] expected = new Ticket[]{third, second, first,four,fifth};
+        Ticket[] actual = new Ticket[]{second,third,first,four,fifth};
+
+        Arrays.sort(actual);
+
+        assertArrayEquals(expected, actual);
+    }
 
     @Test
     public void removeById() {
@@ -67,4 +101,5 @@ class ManagerTest {
 
         assertArrayEquals(expected, actual);
     }
+
 }
