@@ -27,6 +27,7 @@ class ManagerTest {
 
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void search2() {
         man.saveProduct(first);
@@ -36,6 +37,7 @@ class ManagerTest {
 
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void search3() {
 
@@ -66,21 +68,6 @@ class ManagerTest {
 
         Ticket[] expected = new Ticket[]{first, four};
         Ticket[] actual = new Ticket[]{first, four};
-
-        Arrays.sort(actual);
-
-        assertArrayEquals(expected, actual);
-    }
-    @Test
-    public void sort3() {
-        man.saveProduct(first);
-        man.saveProduct(second);
-        man.saveProduct(third);
-        man.saveProduct(four);
-        man.saveProduct(fifth);
-
-        Ticket[] expected = new Ticket[]{third, second, first,four,fifth};
-        Ticket[] actual = new Ticket[]{second,third,first,four,fifth};
 
         Arrays.sort(actual);
 
