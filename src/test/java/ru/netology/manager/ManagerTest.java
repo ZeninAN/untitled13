@@ -15,6 +15,8 @@ class ManagerTest {
     private final Ticket third = new Ticket(3, 130, "OGZ", "GOJ", 9);
     private final Ticket four = new Ticket(4, 400, "LED", "KUF", 6);
     private final Ticket fifth = new Ticket(5, 600, "GOJ", "KUF", 2);
+    private final Ticket six = new Ticket(5, 450, "GOJ", "KUF", 3);
+    private final Ticket seven = new Ticket(5, 100, "GOJ", "KUF", 1);
 
     @Test
     public void search() {
@@ -55,6 +57,22 @@ class ManagerTest {
 
         Ticket[] expected = new Ticket[]{third, second, first};
         Ticket[] actual = new Ticket[]{second, third, first};
+
+        Arrays.sort(actual);
+
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void sort3() {
+        man.saveProduct(first);
+        man.saveProduct(second);
+        man.saveProduct(third);
+        man.saveProduct(fifth);
+        man.saveProduct(six);
+        man.saveProduct(seven);
+
+        Ticket[] expected = new Ticket[]{seven,third, second, first,six,fifth};
+        Ticket[] actual = new Ticket[]{third,seven,first,second,fifth,six};
 
         Arrays.sort(actual);
 
